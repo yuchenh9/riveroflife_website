@@ -1,0 +1,76 @@
+.nav-bar-outer {
+  width: 100%;
+  background: #54aaff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.nav-title {
+  color: #222;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-left: 48px;
+  font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  padding: 10px 0 10px 0;
+}
+
+.nav-bar {
+  background: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  padding: 24px 0 18px 0;
+  font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+}
+
+.nav-item {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 6px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  letter-spacing: 2px;
+  user-select: none;
+}
+
+.nav-arrow {
+  font-size: 1.2rem;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #54aaff;
+  min-width: 120px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border-radius: 0 0 4px 4px;
+  z-index: 10;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nav-dropdown-item {
+  color: #fff;
+  font-size: 1rem;
+  padding: 6px 24px 6px 16px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.nav-dropdown-item:hover {
+  background: rgba(255,255,255,0.12);
+} 
