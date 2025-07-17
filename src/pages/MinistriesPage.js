@@ -3,7 +3,7 @@ import React from "react";
 function MinistriesPage() {
   return (
     <div className="main-content" style={{ maxWidth: 900, margin: "0 auto", padding: 24 }}>
-      <h1 style={{ textAlign: "center" }}>教会事工</h1>
+      <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>教会事工</p>
       <section style={{ margin: "32px 0" }}>
         <p style={{ fontSize: "1.1em", lineHeight: 2 }}>
           我们的主来到这个世界上不是为了受人服事，而是为了事奉人。我们是他的门徒，因此也应当效法他的榜样（马太福音20:28）。<br />
@@ -42,6 +42,10 @@ function MinistriesPage() {
           </ol>
         </div>
       </section>
+      <div className="full-width-line" />
+      <p style={{fontSize: "15px",textAlign: 'center', color: '#000000',margin: '32px 0 16px'}}>
+        Copyright &copy; {new Date().getFullYear()} 香槟厄巴纳生命河教会
+      </p>
     </div>
   );
 }

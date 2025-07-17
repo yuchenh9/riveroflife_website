@@ -3,7 +3,7 @@ import React from "react";
 function DeclarationPage() {
   return (
     <div className="main-content" style={{ maxWidth: 900, margin: "0 auto", padding: 24 }}>
-      <h1 style={{ textAlign: "center" }}>信仰宣言</h1>
+      <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>信仰宣言</p>
       <h3 style={{ textAlign: "center", color: "#0693e3", marginBottom: 32 }}>
         生命河教会的信仰宣言是基于2000年浸信会信仰和信息。文本对浸信会信仰和信息的中文翻译作些修改。
       </h3>
@@ -129,6 +129,10 @@ function DeclarationPage() {
           Children, from the moment of conception, are a blessing and heritage from the Lord. Parents are to demonstrate to their children God’s pattern for marriage. Parents are to teach their children spiritual and moral values and to lead them, through consistent lifestyle example and loving discipline, to make choices based on biblical truth. Children are to honor and obey their parents.
         </p>
       </section>
+      <div className="full-width-line" />
+      <p style={{fontSize: "15px",textAlign: 'center', color: '#000000',margin: '32px 0 16px'}}>
+        Copyright &copy; {new Date().getFullYear()} 香槟厄巴纳生命河教会
+      </p>
     </div>
   );
 }

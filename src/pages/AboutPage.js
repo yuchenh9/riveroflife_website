@@ -3,7 +3,7 @@ import React from "react";
 function AboutPage() {
   return (
     <div className="main-content" style={{ maxWidth: 800, margin: "0 auto", padding: 24 }}>
-      <h1 style={{ textAlign: "center" }}>关于我们</h1>
+      <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>关于我们</p>
       <section>
         <h2 style={{ textAlign: "center" }}>教会的异象</h2>
         <p style={{ textAlign: "center" }}>建造下一代的门徒, 扩展上帝的国度</p>
@@ -48,6 +48,10 @@ function AboutPage() {
           </li>
         </ol>
       </section>
+      <div className="full-width-line" />
+      <p style={{fontSize: "15px",textAlign: 'center', color: '#000000',margin: '32px 0 16px'}}>
+        Copyright &copy; {new Date().getFullYear()} 香槟厄巴纳生命河教会
+      </p>
     </div>
   );
 }

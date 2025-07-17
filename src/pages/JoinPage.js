@@ -3,7 +3,7 @@ import React from "react";
 function JoinPage() {
   return (
     <div className="main-content" style={{ maxWidth: 900, margin: "0 auto", padding: 24 }}>
-      <h1 style={{ textAlign: "center" }}>加入</h1>
+      <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>加入</p>
       <section style={{ margin: "32px 0" }}>
         <p>欢迎通过以下的方式参与生命河教会的敬拜与团契：</p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 32 }}>
@@ -81,6 +81,10 @@ function JoinPage() {
           </div>
         </div>
       </section>
+      <div className="full-width-line" />
+      <p style={{fontSize: "15px",textAlign: 'center', color: '#000000',margin: '32px 0 16px'}}>
+        Copyright &copy; {new Date().getFullYear()} 香槟厄巴纳生命河教会
+      </p>
     </div>
   );
 }

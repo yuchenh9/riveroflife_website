@@ -3,7 +3,8 @@ import React from "react";
 function CommunitySchoolPage() {
   return (
     <div className="main-content" style={{ maxWidth: 900, margin: "0 auto", padding: 24 }}>
-      <h1 style={{ textAlign: "center" }}>社区事工/中文学校</h1>
+      <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>社区事工/中文学校</p>
+      <h1 style={{ textAlign: "center", position: 'absolute', left: '-9999px' }}>社区事工/中文学校</h1>
       <section style={{ margin: "32px 0" }}>
         <p style={{ fontSize: "1.1em", lineHeight: 2 }}>
           中文学校（Chinese School）：通过对社区儿童学业的帮助，引导他们认识上帝。<br />
@@ -20,6 +21,10 @@ function CommunitySchoolPage() {
       <section style={{ margin: "32px 0", textAlign: "center" }}>
         <a href="mailto:RiverofLifeCCU@gmail.com" style={{ display: "inline-block", background: "#0693e3", color: "#fff", padding: "12px 32px", borderRadius: 6, textDecoration: "none", fontWeight: 600 }}>联系我们</a>
       </section>
+      <div className="full-width-line" />
+      <p style={{fontSize: "15px",textAlign: 'center', color: '#000000',margin: '32px 0 16px'}}>
+        Copyright &copy; {new Date().getFullYear()} 香槟厄巴纳生命河教会
+      </p>
     </div>
   );
 }

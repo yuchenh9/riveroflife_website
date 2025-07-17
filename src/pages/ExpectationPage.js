@@ -3,7 +3,7 @@ import React from "react";
 function ExpectationPage() {
   return (
     <div className="main-content" style={{ maxWidth: 800, margin: "0 auto", padding: 24 }}>
-      <h1 style={{ textAlign: "center" }}>期待</h1>
+      <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>期待</p>
       <section style={{ margin: "32px 0" }}>
         <h2 style={{ color: "#0693e3", textAlign: "center" }}>在属灵成长中：</h2>
         <ol style={{ fontSize: "1.1em", lineHeight: 2 }}>
@@ -25,6 +25,10 @@ function ExpectationPage() {
           <li>音乐：以符合圣经的方式将我们的赞美献给神</li>
         </ol>
       </section>
+      <div className="full-width-line" />
+      <p style={{fontSize: "15px",textAlign: 'center', color: '#000000',margin: '32px 0 16px'}}>
+        Copyright &copy; {new Date().getFullYear()} 香槟厄巴纳生命河教会
+      </p>
     </div>
   );
 }

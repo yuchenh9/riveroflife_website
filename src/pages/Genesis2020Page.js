@@ -1,26 +1,26 @@
 import React, { useState } from "react";
 
 const videos = [
-  { id: "m6Poa7r3M0U", title: "福音与宗教｜2023.04.23主日敬拜｜李晖牧师" },
-  { id: "ifFpf5oeJeI", title: "透过比喻，明白真理｜2023.04.16主日证道｜吕松宇弟兄" },
-  { id: "gUKi4JKm2qI", title: "耶稣为何来到世上 2｜2023.03.26主日证道｜李晖牧师" },
-  { id: "_tNyonqV9-Y", title: "耶稣为何来到世上 1｜2023.03.26主日敬拜｜李晖牧师" },
-  { id: "8Bxcd9Kz-a0", title: "话说神迹 ｜2023.03.19主日证道｜吕松宇弟兄" },
-  { id: "60byVPTp57o", title: "兴旺上帝的道｜2023.03.05主日敬拜｜李晖牧师" },
-  { id: "kBMrv3ofzzs", title: "跟从耶稣为主得人｜2023.02.19主日敬拜｜李晖牧师" },
-  { id: "kzvkkL1QFbM", title: "悔改的生命｜2023.02.12主日证道｜李晖牧师" },
-  { id: "NvyQI9Xoe98", title: "悔改的福音｜2023.02.05主日敬拜｜吕松宇弟兄" },
-  { id: "mTvtA9KrJLo", title: "耶稣上帝的儿子｜2023.01.29主日证道｜李晖牧师" },
-  { id: "OPPe4iWUS5U", title: "福音的起头｜2023.01.22主日证道｜李晖牧师" },
-  { id: "p_x0JH4DjHY", title: "教会的异象和使命｜2023.01.15主日证道｜李晖牧师" }
+  { id: "1am_cS62XqM", title: "上帝实现他的应许 | 2020.11.29 主日证道 | Nathan" },
+  { id: "4k3IhJg8u48", title: "求主帮我明白他的话 | 09.27.2020 主日证道 | 荘哲勤弟兄" },
+  { id: "9133XM-QjQc", title: "金子般称义的信心 | 2020.11.08" },
+  { id: "FEscphUftvM", title: "基督徒的十一奉献 | 2020.11.01 主日证道 | 李晖牧师" },
+  { id: "Js4DgaPJf70", title: "去分散到全地 | 10.04.2020 主日证道 | 李晖牧师" },
+  { id: "QXRztQORzig", title: "挪亚之约 | 09.06.2020主日证道 | 李晖牧师" },
+  { id: "SXnyph-FBeY", title: "上帝的呼召 | 10.11.2020 主日证道 | 李晖牧师" },
+  { id: "XSNO_AOFdPw", title: "和平之道 | 2020.10.18 主日证道 | 李晖牧师" },
+  { id: "YrF_oHHbhTs", title: "耶稣基督为永远的大祭司 | 10.25.2020 主日证道 | 李晖牧师" },
+  { id: "egXE-TuLu1s", title: "人的盼望 | 06.07.2020主日证道 | 李晖牧师" },
+  { id: "mJwukeKqF7A", title: "是谁的儿女 | 09.20.2020主日证道 | 李晖牧师" },
+  { id: "vh9AvNTikpg", title: "成为上帝的儿女 | 2020.11.15 主日证道 | 李晖牧师" },
 ];
 
-function Mark2023Page() {
+function Genesis2020Page() {
   const [selected, setSelected] = useState(0);
   return (
     <div className="main-content" style={{ maxWidth: 1200, margin: "0 auto", padding: 24 }}>
-      <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>2023 马可福音</p>
-      <h1 style={{ textAlign: "center", position: 'absolute', left: '-9999px' }}>2023 马可福音</h1>
+      <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>2020 创世纪</p>
+      <h1 style={{ textAlign: "center", position: 'absolute', left: '-9999px' }}>2020 创世纪</h1>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 32 }}>
         <div style={{ width: "100%", maxWidth: 900, aspectRatio: "16/9", marginBottom: 24, background: "#000", borderRadius: 8, overflow: "hidden" }}>
           <iframe
@@ -65,4 +65,4 @@ function Mark2023Page() {
   );
 }
 
-export default Mark2023Page; 
+export default Genesis2020Page; 

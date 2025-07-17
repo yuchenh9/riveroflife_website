@@ -44,12 +44,16 @@ function LatestYouTubeVideo() {
 }
 
 function HomePage() {
+  const galleryImages = [
+    process.env.PUBLIC_URL + "/homepage_images/20190602-151619_orig-e1744838455976.webp",
+    process.env.PUBLIC_URL + "/homepage_images/Fellowship-1-e1744837949133.webp",
+  ];
   return (
     <>
       <div className="main-content">
         <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>主页</p>
       </div>
-      <ImageGallery />
+      <ImageGallery images={galleryImages} width="90%" height="500px" />
       <LatestYouTubeVideo />
       <div className="main-content">
         <p style={{ marginTop: "40px", marginLeft: "80px" }}>香槟-厄巴纳生命河教会是一家以传讲耶稣基督，教导上帝的话语和门徒建造为核心的教会。教会的名字取自启示录22章1-2节有关生命的异象：</p>

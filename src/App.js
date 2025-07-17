@@ -22,6 +22,8 @@ import GospelMinistryPage from "./pages/GospelMinistryPage";
 import Joshua2022Page from "./pages/Joshua2022Page";
 import Romans2022Page from "./pages/Romans2022Page";
 import Mark2023Page from "./pages/Mark2023Page";
+import Genesis2020Page from "./pages/Genesis2020Page";
+import OtherSermonsPage from "./pages/OtherSermonsPage";
 
 function App() {
   return (
@@ -48,6 +50,8 @@ function App() {
         <Route path="/joshua-2022" element={<Joshua2022Page />} />
         <Route path="/romans-2022" element={<Romans2022Page />} />
         <Route path="/mark-2023" element={<Mark2023Page />} />
+        <Route path="/genesis-2020" element={<Genesis2020Page />} />
+        <Route path="/other-sermons" element={<OtherSermonsPage />} />
       </Routes>
     </>
   );

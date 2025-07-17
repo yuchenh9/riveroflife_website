@@ -31,7 +31,9 @@ const menuItems = [
     dropdown: [
       { label: "2023 马可福音", to: "/mark-2023" },
       { label: "2022 罗马书", to: "/romans-2022" },
-      { label: "2022 约书亚记", to: "/joshua-2022" }
+      { label: "2022 约书亚记", to: "/joshua-2022" },
+      { label: "2020 创世纪", to: "/genesis-2020" },
+      { label: "其他讲道", to: "/other-sermons" }
     ],
     to: "/sermons"
   },
@@ -67,7 +69,6 @@ function NavBar() {
             >
               {item.label}
             </NavLink>
-            {item.dropdown && <span className="nav-arrow">▼</span>}
             {item.dropdown && openIdx === idx && (
               <div className="nav-dropdown">
                 {item.dropdown.map((sub, subIdx) => (

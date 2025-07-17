@@ -5,7 +5,8 @@ function DiscipleshipPage() {
   const imageUrl = process.env.PUBLIC_URL + "/images%20copy/Fellowship-1-e1744837949133.webp";
   return (
     <div className="main-content" style={{ maxWidth: 1000, margin: "0 auto", padding: 24 }}>
-      <h1 style={{ textAlign: "center" }}>门徒建造/小组团契</h1>
+      <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>门徒建造/小组团契</p>
+      <h1 style={{ textAlign: "center", position: 'absolute', left: '-9999px' }}>门徒建造/小组团契</h1>
       {/* Scripture block */}
       <section style={{ margin: "32px 0" }}>
         <div style={{
@@ -40,6 +41,10 @@ function DiscipleshipPage() {
           <img src={imageUrl} alt="团契聚会" style={{ maxWidth: "100%", borderRadius: 12, boxShadow: "0 2px 12px #0001" }} />
         </div>
       </div>
+      <div className="full-width-line" />
+      <p style={{fontSize: "15px",textAlign: 'center', color: '#000000',margin: '32px 0 16px'}}>
+        Copyright &copy; {new Date().getFullYear()} 香槟厄巴纳生命河教会
+      </p>
       {/* Call to action */}
       <section style={{ margin: "40px 0 0 0", background: "#e0f7fa", borderRadius: 10, padding: 24, textAlign: "center" }}>
         <p style={{ fontWeight: 600, fontSize: "1.1em", marginBottom: 16 }}>想更多了解耶稣， 或者加入我们的事工团队，请用下面的链接联系我们！</p>

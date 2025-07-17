@@ -1,20 +1,20 @@
 import React from "react";
 
-const galleryImages = [
-  {
-    src: process.env.PUBLIC_URL + "/images%20copy/20190602-151619_orig-e1744838455976.webp",
-    alt: "学生团契活动1"
-  },
-  {
-    src: process.env.PUBLIC_URL + "/images%20copy/Fellowship-1-e1744837949133.webp",
-    alt: "学生团契活动2"
-  }
-];
-
+import ImageGallery from "../ImageGallery";
 function StudentMinistryPage() {
+  const galleryImages = [
+    process.env.PUBLIC_URL + "/students_ministry_images/20190223-150206_orig.jpg",
+  process.env.PUBLIC_URL + "/students_ministry_images/20190602-151619_orig.jpg",
+  process.env.PUBLIC_URL + "/students_ministry_images/45419842-2344820365547993-5266885886477336576-n_1_orig.jpg",
+  process.env.PUBLIC_URL + "/students_ministry_images/46501619-2270546576558851-7665301697371045888-n_1.jpg",
+  process.env.PUBLIC_URL + "/students_ministry_images/61473942-10161809722270223-1889642527699501056-n_orig-1.jpg",
+  process.env.PUBLIC_URL + "/students_ministry_images/mmexport1547575788024_orig.jpg",
+  process.env.PUBLIC_URL + "/students_ministry_images/wechat-image-201904221207177_orig.jpg",
+];
   return (
     <div className="main-content" style={{ maxWidth: 1000, margin: "0 auto", padding: 24 }}>
-      <h1 style={{ textAlign: "center" }}>大学生事工</h1>
+      <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>大学生事工</p>
+      <h1 style={{ textAlign: "center", position: 'absolute', left: '-9999px' }}>大学生事工</h1>
       {/* Scripture block */}
       <section style={{ margin: "32px 0" }}>
         <div style={{
@@ -44,17 +44,9 @@ function StudentMinistryPage() {
       {/* Gallery */}
       <section style={{ margin: "32px 0" }}>
         <h3 style={{ textAlign: "center", color: "#0693e3", fontWeight: 700 }}>相册</h3>
-        <div style={{ display: "flex", gap: 24, flexWrap: "wrap", justifyContent: "center", alignItems: "center", marginTop: 16 }}>
-          {galleryImages.map((img, idx) => (
-            <img
-              key={idx}
-              src={img.src}
-              alt={img.alt}
-              style={{ maxWidth: 320, width: "100%", borderRadius: 10, boxShadow: "0 2px 12px #0001", marginBottom: 12 }}
-            />
-          ))}
-        </div>
+        
       </section>
+      <ImageGallery images={galleryImages} width="95%" height="700px" />
       {/* Small group section */}
       <section style={{ margin: "32px 0" }}>
         <p style={{ fontSize: "1.1em", lineHeight: 2 }}>
@@ -81,6 +73,10 @@ function StudentMinistryPage() {
           联系我们
         </a>
       </section>
+      <div className="full-width-line" />
+      <p style={{fontSize: "15px",textAlign: 'center', color: '#000000',margin: '32px 0 16px'}}>
+        Copyright &copy; {new Date().getFullYear()} 香槟厄巴纳生命河教会
+      </p>
     </div>
   );
 }

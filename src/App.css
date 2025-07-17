@@ -59,6 +59,12 @@
   border: none;
   border-top: 0.5px solid #bbb;
   margin: 32px 0;
-  width: 100%;
+  width: 100vw;
   height: 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  background: none;
+  padding: 0;
 }
