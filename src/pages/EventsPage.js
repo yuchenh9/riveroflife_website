@@ -2,39 +2,39 @@ import React from "react";
 
 const images = [
   {
-    src: "https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2023/08/Baptism.jpeg?resize=1024%2C683&ssl=1",
+    src: process.env.PUBLIC_URL + "/events_images/Baptism.jpeg",
     alt: "Baptism"
   },
   {
-    src: "https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2023/08/DSC04898.jpeg?resize=1024%2C683&ssl=1",
+    src: process.env.PUBLIC_URL + "/events_images/DSC04898.jpeg",
     alt: "DSC04898"
   },
   {
-    src: "https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2023/08/DSC04914-8.jpeg?resize=1024%2C683&ssl=1",
+    src: process.env.PUBLIC_URL + "/events_images/DSC04914-8.jpeg",
     alt: "DSC04914-8"
   },
   {
-    src: "https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2023/08/2023-TBF-Graduation-BBQ.jpg?resize=1024%2C768&ssl=1",
+    src: process.env.PUBLIC_URL + "/events_images/2023-TBF-Graduation-BBQ.jpg",
     alt: "2023 TBF Graduation BBQ"
   },
   {
-    src: "https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2023/08/Fellowship-1.jpeg?resize=1024%2C768&ssl=1",
+    src: process.env.PUBLIC_URL + "/events_images/Fellowship-1.jpeg",
     alt: "Fellowship-1"
   },
   {
-    src: "https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2023/08/2021-Christmas-1.jpeg?resize=1024%2C683&ssl=1",
+    src: process.env.PUBLIC_URL + "/events_images/2021-Christmas-1.jpeg",
     alt: "2021 Christmas"
   },
   {
-    src: "https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2023/08/2021-Summer-PartyJPG-1.jpg?resize=1024%2C683&ssl=1",
+    src: process.env.PUBLIC_URL + "/events_images/2021-Summer-PartyJPG-1.jpg",
     alt: "2021 Summer Party"
   },
   {
-    src: "https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2023/08/2021-%E4%B8%AD%E7%A7%8B%E7%89%B9%E5%88%AB%E8%81%9A%E4%BC%9A-1.jpg?resize=1024%2C768&ssl=1",
+    src: process.env.PUBLIC_URL + "/events_images/20210.jpg",
     alt: "2021 中秋特别聚会"
   },
   {
-    src: "https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2023/08/IMG_5594.jpg?resize=1024%2C683&ssl=1",
+    src: process.env.PUBLIC_URL + "/events_images/IMG_5594.jpg",
     alt: "IMG_5594"
   }
 ];

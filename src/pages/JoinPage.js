@@ -18,7 +18,7 @@ function JoinPage() {
           </div>
           <div style={{ flex: 1, minWidth: 280, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <img
-              src="https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2021/07/wechat-image-201904131249353_2.jpg?resize=823%2C618&ssl=1"
+              src={process.env.PUBLIC_URL + "/join_images/wechat-image-201904131249353_2.jpg"}
               alt="教会活动"
               style={{ maxWidth: "100%", borderRadius: 8 }}
             />
@@ -29,7 +29,7 @@ function JoinPage() {
         <div style={{ display: "flex", flexWrap: "wrap", gap: 32 }}>
           <div style={{ flex: 1, minWidth: 280, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <img
-              src="https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2021/07/20190420-151430.jpg?resize=957%2C719&ssl=1"
+              src={process.env.PUBLIC_URL + "/join_images/20190420-151430.jpg"}
               alt="团契活动"
               style={{ maxWidth: "100%", borderRadius: 8 }}
             />
@@ -46,7 +46,7 @@ function JoinPage() {
                 href="https://goo.gl/forms/id6zlc7gKHKYwStc2"
                 target="_blank"
                 rel="noreferrer noopener"
-                style={{ display: "inline-block", background: "#fff", color: "#0693e3", border: "2px solid #0693e3", borderRadius: 6, padding: "8px 24px", fontWeight: 600, textDecoration: "none" }}
+                style={{ display: "inline-block", background: "#0693e3", color: "#fff", border: "2px solid #0693e3", borderRadius: 6, padding: "8px 24px", fontWeight: 600, textDecoration: "none" }}
               >
                 注册
               </a>
@@ -58,7 +58,7 @@ function JoinPage() {
         <div style={{ display: "flex", flexWrap: "wrap", gap: 32 }}>
           <div style={{ flex: 1, minWidth: 280, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <img
-              src="https://i0.wp.com/riveroflifecu.org/wp-content/uploads/2021/07/wechat-image-2019041312393416.jpg?resize=599%2C450&ssl=1"
+              src={process.env.PUBLIC_URL + "/join_images/wechat-image-2019041312393416.jpg"}
               alt="大组团契"
               style={{ maxWidth: "100%", borderRadius: 8 }}
             />
@@ -73,7 +73,7 @@ function JoinPage() {
                 href="https://goo.gl/forms/id6zlc7gKHKYwStc2"
                 target="_blank"
                 rel="noreferrer noopener"
-                style={{ display: "inline-block", background: "#fff", color: "#0693e3", border: "2px solid #0693e3", borderRadius: 6, padding: "8px 24px", fontWeight: 600, textDecoration: "none" }}
+                style={{ display: "inline-block", background: "#0693e3", color: "#fff", border: "2px solid #0693e3", borderRadius: 6, padding: "8px 24px", fontWeight: 600, textDecoration: "none" }}
               >
                 注册
               </a>

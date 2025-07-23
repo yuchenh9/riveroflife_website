@@ -2,7 +2,7 @@ import React from "react";
 
 function DiscipleshipPage() {
   // Use a placeholder image if the original is not available
-  const imageUrl = process.env.PUBLIC_URL + "/images%20copy/Fellowship-1-e1744837949133.webp";
+  const imageUrl = process.env.PUBLIC_URL + "/discipleship_images/20190329-195715.jpg";
   return (
     <div className="main-content" style={{ maxWidth: 1000, margin: "0 auto", padding: 24 }}>
       <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>门徒建造/小组团契</p>

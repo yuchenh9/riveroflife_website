@@ -42,8 +42,23 @@ const menuItems = [
   { label: "奉献", to: "/offering" }
 ];
 
+// Create a flattened menu for mobile view
+const getAllMenuItems = () => {
+  const allItems = [];
+  menuItems.forEach(item => {
+    allItems.push({ label: item.label, to: item.to });
+    if (item.dropdown) {
+      item.dropdown.forEach(subItem => {
+        allItems.push({ label: subItem.label, to: subItem.to });
+      });
+    }
+  });
+  return allItems;
+};
+
 function NavBar() {
   const [openIdx, setOpenIdx] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleDropdownClick = (to) => {
@@ -51,10 +66,40 @@ function NavBar() {
     navigate(to);
   };
 
+  const handleMobileMenuClick = (to) => {
+    setMobileMenuOpen(false);
+    navigate(to);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleOverlayClick = (e) => {
+    // Close menu when clicking on the overlay background (not the menu itself)
+    if (e.target.classList.contains('mobile-nav-overlay')) {
+      setMobileMenuOpen(false);
+    }
+  };
+
+  const handleMenuClick = (e) => {
+    // Prevent closing when clicking inside the menu
+    e.stopPropagation();
+  };
+
   return (
     <div className="nav-bar-outer">
       <div className="nav-title">香槟厄巴纳生命河教会</div>
-      <nav className="nav-bar">
+      
+      {/* Hamburger Menu Button */}
+      <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+        <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`}></span>
+        <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`}></span>
+        <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`}></span>
+      </button>
+      
+      {/* Desktop Navigation */}
+      <nav className="nav-bar desktop-nav">
         {menuItems.map((item, idx) => (
           <div
             className="nav-item"
@@ -85,6 +130,23 @@ function NavBar() {
           </div>
         ))}
       </nav>
+
+      {/* Mobile Navigation Menu */}
+      {mobileMenuOpen && (
+        <div className="mobile-nav-overlay" onClick={handleOverlayClick}>
+          <div className="mobile-nav-menu" onClick={handleMenuClick}>
+            {getAllMenuItems().map((item, idx) => (
+              <div
+                className="mobile-nav-item"
+                key={idx}
+                onClick={() => handleMobileMenuClick(item.to)}
+              >
+                {item.label}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
