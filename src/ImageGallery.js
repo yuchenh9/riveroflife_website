@@ -4,6 +4,7 @@ import "./ImageGallery.css";
 
 function ImageGallery({ images = [], width = "100%", height = "auto" }) {
   const [state, setState] = useState({ current: 0, prev: 0, direction: 1, transitioning: false });
+  const [imageLoaded, setImageLoaded] = useState(false);
   const timeoutRef = useRef(null);
   const transitionDuration = 600;
 
@@ -39,32 +40,39 @@ function ImageGallery({ images = [], width = "100%", height = "auto" }) {
   if (images.length === 0) return null;
 
   return (
-    <div className="gallery-container" style={{ width, height, maxWidth: "100%", margin: "0 auto" }}>
-      <button className="gallery-btn left" onClick={goLeft} disabled={state.transitioning}>&lt;</button>
-      <div className="gallery-slider" style={{ width: "100%", height: "100%" }}>
-        {images.map((img, idx) => {
-          let className = "gallery-image";
-          if (idx === state.current) className += " active";
-          else if (idx === state.prev) className += state.direction === 1 ? " slide-left" : " slide-right";
-          else className += state.direction === 1 ? " slide-right" : " slide-left";
-          return (
-            <img
-              key={idx}
-              src={img}
-              alt="Slide"
-              className={className}
-              draggable={false}
-              style={{ width: "100%", height: height === "auto" ? "auto" : "100%" }}
-            />
-          );
-        })}
+    <div className="gallery-container">
+      <div className="gallery-slider-wrapper">
+        <button className="gallery-btn left" onClick={goLeft} disabled={state.transitioning}>
+          <span>&lt;</span>
+        </button>
+        <div className="gallery-slider">
+          {images.map((img, idx) => {
+            let className = "gallery-image";
+            if (idx === state.current) className += " active";
+            else if (idx === state.prev) className += state.direction === 1 ? " slide-left" : " slide-right";
+            else className += state.direction === 1 ? " slide-right" : " slide-left";
+            return (
+              <img
+                key={idx}
+                src={img}
+                alt={`Slide ${idx + 1}`}
+                className={className}
+                draggable={false}
+                onLoad={() => setImageLoaded(true)}
+              />
+            );
+          })}
+        </div>
+        <button className="gallery-btn right" onClick={goRight} disabled={state.transitioning}>
+          <span>&gt;</span>
+        </button>
       </div>
-      <button className="gallery-btn right" onClick={goRight} disabled={state.transitioning}>&gt;</button>
       <div className="gallery-dots">
         {images.map((_, idx) => (
           <span
             key={idx}
             className={`gallery-dot${state.current === idx ? " active" : ""}`}
+            onClick={() => slideTo(idx, idx > state.current ? 1 : -1)}
           />
         ))}
       </div>

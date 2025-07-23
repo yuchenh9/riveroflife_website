@@ -1,11 +1,14 @@
 .nav-bar-outer {
   width: 100%;
+  max-width: 100%;
   background: #54aaff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0;
   position: relative;
+  overflow-x: visible;
+  z-index: 999;
 }
 
 .nav-title {
@@ -126,29 +129,37 @@
   background: rgba(255,255,255,0.12);
 }
 
-/* Mobile Navigation Overlay */
+/* Mobile Navigation Dropdown */
 .mobile-nav-overlay {
   position: fixed;
-  top: 0;
+  top: 60px;
   left: 0;
   width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 60px;
+  background: white;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mobile-nav-menu {
   background: #54aaff;
   width: 100%;
-  max-height: calc(100vh - 60px);
+  max-height: 70vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .mobile-nav-item {
@@ -175,13 +186,18 @@
 @media (max-width: 768px) {
   .nav-bar-outer {
     padding: 0;
+    overflow-x: hidden;
+    position: relative;
   }
 
   .nav-title {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     margin-left: 16px;
     flex: 1;
     padding: 12px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .mobile-menu-toggle {
@@ -191,18 +207,32 @@
   .desktop-nav {
     display: none !important;
   }
+  
+  .mobile-nav-overlay {
+    display: block;
+  }
+  
+  .mobile-nav-menu {
+    display: flex;
+  }
+  
+  .mobile-nav-item {
+    font-size: 1.2rem;
+    padding: 14px 20px;
+    display: block;
+  }
 }
 
 @media (max-width: 480px) {
   .nav-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-left: 12px;
     letter-spacing: 1px;
   }
 
   .mobile-nav-item {
-    font-size: 1rem;
-    padding: 14px 20px;
+    font-size: 1.1rem;
+    padding: 16px 20px;
   }
 }
 

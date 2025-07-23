@@ -52,9 +52,11 @@ function HomePage() {
   return (
     <>
       <div className="main-content">
-        <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>主页</p>
+        <p style={{fontSize: "30px",textAlign: 'left',marginTop: "4px",marginLeft: "20px", marginBottom: "0px", color: '#000000'}}>主页</p>
       </div>
-      <ImageGallery images={galleryImages} width="90%" height="500px" />
+      <div style={{marginTop: "0px"}}>
+        <ImageGallery images={galleryImages} />
+      </div>
       <LatestYouTubeVideo />
       <div className="main-content">
         <p style={{ marginTop: "40px", marginLeft: "80px" }}>香槟-厄巴纳生命河教会是一家以传讲耶稣基督，教导上帝的话语和门徒建造为核心的教会。教会的名字取自启示录22章1-2节有关生命的异象：</p>
@@ -62,9 +64,9 @@ function HomePage() {
           “有一道生命河明亮如水晶，从神的宝座流出来，在河的这边和那边有生命树，结十二样的果子…”</p>
         <p style={{ marginTop: "40px", marginLeft: "80px" }}>生命河教会的负担是服事这一代的年轻人和城市福音的需要。教会的异象是：建造下一代的门徒, 扩展上帝的国度; 教会的使命是: 传福音建造主的门徒. 生命河教会注重真理的教导，关心人灵魂的得救，弟兄姐妹属灵生命的成长，和门徒及同工的建造。欢迎您和我们同工，一起建造神的教会，顺服主的大使命，见证和荣耀神的名。</p>
         <p style={{textAlign: 'center', margin: '32px 0 16px', color: '#000000'}}>
-          地址：<a href="https://maps.app.goo.gl/6Qw1Qw2Qw1Qw2Qw1Q" style={{color: '#000000',textDecoration: "underline" }} target="_blank" rel="noopener noreferrer">600 E Pennsylvania Avenue, Urbana, IL 61801<br/>
+          地址：<a href="https://www.google.com/maps/place/600+E+Pennsylvania+Ave,+Urbana,+IL+61801" style={{color: '#000000',textDecoration: "underline" }} target="_blank" rel="noopener noreferrer">600 E Pennsylvania Avenue, Urbana, IL 61801<br/>
           Pennsylvania Avenue Baptist Church (PABC)</a><br/>
-          公交路线：<a href="https://mtd.org/maps-and-schedules/route/5/" style={{color: '#327818'}} target="_blank" rel="noopener noreferrer">5/50 Green East (Illini Union 出发10分钟可达)</a>
+          公交路线：<a href="https://mtd.org/maps-and-schedules/routes" style={{color: '#327818'}} target="_blank" rel="noopener noreferrer">5/50 Green East (从 Illini Union 出发10分钟可达)</a>
         </p>
         <br />
         <br />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 
@@ -42,16 +42,18 @@ const menuItems = [
   { label: "奉献", to: "/offering" }
 ];
 
-// Flatten menu for mobile display
-const buildFlatMenu = () => {
-  const arr = [];
-  menuItems.forEach((item) => {
-    arr.push({ label: item.label, to: item.to });
+// Create a flattened menu for mobile view
+const getAllMenuItems = () => {
+  const allItems = [];
+  menuItems.forEach(item => {
+    allItems.push({ label: item.label, to: item.to });
     if (item.dropdown) {
-      item.dropdown.forEach((sub) => arr.push({ label: sub.label, to: sub.to }));
+      item.dropdown.forEach(subItem => {
+        allItems.push({ label: subItem.label, to: subItem.to });
+      });
     }
   });
-  return arr;
+  return allItems;
 };
 
 function NavBar() {
@@ -64,31 +66,49 @@ function NavBar() {
     navigate(to);
   };
 
-  const toggleMobileMenu = () => setMobileMenuOpen((s) => !s);
-
-  const closeMobileMenu = () => setMobileMenuOpen(false);
-
-  const handleOverlayClick = (e) => {
-    if (e.target.classList.contains("mobile-nav-overlay")) closeMobileMenu();
-  };
-
-  const handleMobileItemClick = (to) => {
-    closeMobileMenu();
+  const handleMobileMenuClick = (to) => {
+    setMobileMenuOpen(false);
     navigate(to);
   };
+
+  const toggleMobileMenu = () => {
+    console.log('Toggle mobile menu, current state:', mobileMenuOpen);
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleOutsideClick = (e) => {
+    // Close menu when clicking outside the navbar
+    if (!e.target.closest('.nav-bar-outer')) {
+      setMobileMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      // Add a small delay to prevent immediate closing when hamburger is clicked
+      const timer = setTimeout(() => {
+        document.addEventListener('click', handleOutsideClick);
+      }, 100);
+      
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener('click', handleOutsideClick);
+      };
+    }
+  }, [mobileMenuOpen]);
 
   return (
     <div className="nav-bar-outer">
       <div className="nav-title">香槟厄巴纳生命河教会</div>
-
-      {/* Hamburger toggle */}
+      
+      {/* Hamburger Menu Button */}
       <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-        <span className={`hamburger-line ${mobileMenuOpen ? "open" : ""}`}></span>
-        <span className={`hamburger-line ${mobileMenuOpen ? "open" : ""}`}></span>
-        <span className={`hamburger-line ${mobileMenuOpen ? "open" : ""}`}></span>
+        <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`}></span>
+        <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`}></span>
+        <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`}></span>
       </button>
-
-      {/* Desktop navigation */}
+      
+      {/* Desktop Navigation */}
       <nav className="nav-bar desktop-nav">
         {menuItems.map((item, idx) => (
           <div
@@ -99,7 +119,7 @@ function NavBar() {
           >
             <NavLink
               to={item.to}
-              className={({ isActive }) => (isActive ? "nav-link-active" : undefined)}
+              className={({ isActive }) => isActive ? "nav-link-active" : undefined}
               end={item.to === "/"}
             >
               {item.label}
@@ -121,15 +141,15 @@ function NavBar() {
         ))}
       </nav>
 
-      {/* Mobile overlay */}
+      {/* Mobile Navigation Menu */}
       {mobileMenuOpen && (
-        <div className="mobile-nav-overlay" onClick={handleOverlayClick}>
-          <div className="mobile-nav-menu" onClick={(e) => e.stopPropagation()}>
-            {buildFlatMenu().map((item, idx) => (
+        <div className="mobile-nav-overlay">
+          <div className="mobile-nav-menu">
+            {getAllMenuItems().map((item, idx) => (
               <div
-                key={idx}
                 className="mobile-nav-item"
-                onClick={() => handleMobileItemClick(item.to)}
+                key={idx}
+                onClick={() => handleMobileMenuClick(item.to)}
               >
                 {item.label}
               </div>
