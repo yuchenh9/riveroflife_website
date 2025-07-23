@@ -99,6 +99,7 @@
 
   .gallery-image {
     height: 300px;
+    object-fit: contain !important;
   }
 
   .gallery-btn {
@@ -127,6 +128,7 @@
 
   .gallery-image {
     height: 250px;
+    object-fit: contain !important;
   }
 
   .gallery-btn {

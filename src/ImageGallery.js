@@ -54,7 +54,7 @@ function ImageGallery({ images = [], width = "100%", height = "auto" }) {
               alt="Slide"
               className={className}
               draggable={false}
-              style={{ width: "100%", height: height === "auto" ? "auto" : "100%", objectFit: "cover" }}
+              style={{ width: "100%", height: height === "auto" ? "auto" : "100%" }}
             />
           );
         })}

@@ -42,18 +42,16 @@ const menuItems = [
   { label: "奉献", to: "/offering" }
 ];
 
-// Create a flattened menu for mobile view
-const getAllMenuItems = () => {
-  const allItems = [];
-  menuItems.forEach(item => {
-    allItems.push({ label: item.label, to: item.to });
+// Flatten menu for mobile display
+const buildFlatMenu = () => {
+  const arr = [];
+  menuItems.forEach((item) => {
+    arr.push({ label: item.label, to: item.to });
     if (item.dropdown) {
-      item.dropdown.forEach(subItem => {
-        allItems.push({ label: subItem.label, to: subItem.to });
-      });
+      item.dropdown.forEach((sub) => arr.push({ label: sub.label, to: sub.to }));
     }
   });
-  return allItems;
+  return arr;
 };
 
 function NavBar() {
@@ -66,39 +64,31 @@ function NavBar() {
     navigate(to);
   };
 
-  const handleMobileMenuClick = (to) => {
-    setMobileMenuOpen(false);
-    navigate(to);
-  };
+  const toggleMobileMenu = () => setMobileMenuOpen((s) => !s);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  const closeMobileMenu = () => setMobileMenuOpen(false);
 
   const handleOverlayClick = (e) => {
-    // Close menu when clicking on the overlay background (not the menu itself)
-    if (e.target.classList.contains('mobile-nav-overlay')) {
-      setMobileMenuOpen(false);
-    }
+    if (e.target.classList.contains("mobile-nav-overlay")) closeMobileMenu();
   };
 
-  const handleMenuClick = (e) => {
-    // Prevent closing when clicking inside the menu
-    e.stopPropagation();
+  const handleMobileItemClick = (to) => {
+    closeMobileMenu();
+    navigate(to);
   };
 
   return (
     <div className="nav-bar-outer">
       <div className="nav-title">香槟厄巴纳生命河教会</div>
-      
-      {/* Hamburger Menu Button */}
+
+      {/* Hamburger toggle */}
       <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-        <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`}></span>
-        <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`}></span>
-        <span className={`hamburger-line ${mobileMenuOpen ? 'open' : ''}`}></span>
+        <span className={`hamburger-line ${mobileMenuOpen ? "open" : ""}`}></span>
+        <span className={`hamburger-line ${mobileMenuOpen ? "open" : ""}`}></span>
+        <span className={`hamburger-line ${mobileMenuOpen ? "open" : ""}`}></span>
       </button>
-      
-      {/* Desktop Navigation */}
+
+      {/* Desktop navigation */}
       <nav className="nav-bar desktop-nav">
         {menuItems.map((item, idx) => (
           <div
@@ -109,7 +99,7 @@ function NavBar() {
           >
             <NavLink
               to={item.to}
-              className={({ isActive }) => isActive ? "nav-link-active" : undefined}
+              className={({ isActive }) => (isActive ? "nav-link-active" : undefined)}
               end={item.to === "/"}
             >
               {item.label}
@@ -131,15 +121,15 @@ function NavBar() {
         ))}
       </nav>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile overlay */}
       {mobileMenuOpen && (
         <div className="mobile-nav-overlay" onClick={handleOverlayClick}>
-          <div className="mobile-nav-menu" onClick={handleMenuClick}>
-            {getAllMenuItems().map((item, idx) => (
+          <div className="mobile-nav-menu" onClick={(e) => e.stopPropagation()}>
+            {buildFlatMenu().map((item, idx) => (
               <div
-                className="mobile-nav-item"
                 key={idx}
-                onClick={() => handleMobileMenuClick(item.to)}
+                className="mobile-nav-item"
+                onClick={() => handleMobileItemClick(item.to)}
               >
                 {item.label}
               </div>
