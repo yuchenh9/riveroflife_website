@@ -45,10 +45,18 @@ function LatestYouTubeVideo() {
 }
 
 function HomePage() {
+  const [lightboxImage, setLightboxImage] = useState(null);
+  
   const galleryImages = [
     process.env.PUBLIC_URL + "/homepage_images/20190602-151619_orig-e1744838455976.webp",
     process.env.PUBLIC_URL + "/homepage_images/Fellowship-1-e1744837949133.webp",
   ];
+  const galleryImages2 = [
+    process.env.PUBLIC_URL + "/homepage_images/C-1.png",
+    process.env.PUBLIC_URL + "/homepage_images/C-2.png",
+    process.env.PUBLIC_URL + "/homepage_images/mark.png",
+  ];
+
   return (
     <>
       <div className="main-content">
@@ -78,6 +86,46 @@ function HomePage() {
           <div>周日敬拜　9:30 AM – 10:30 AM（主日学）</div>
           <div>　　　　　　10:45 AM – 12:15 PM（主日敬拜）</div>
         </div>
+        <br />
+        <div style={{
+  width: '70%',
+  height: '1px',
+  background: '#ccc',
+  margin: '20px auto'
+}} />
+      
+        <h2 style={{textAlign: 'center', color: '#000000', margin: '32px 0 16px'}}>邀请您参加我们周五的圣经学习</h2>
+       
+
+<div style={{
+  marginTop: "20px",
+  display: "flex",
+  overflowX: "auto",
+  justifyContent: "center",
+  gap: "15px",
+  padding: "10px 20px",
+  scrollbarWidth: "thin"
+}}>
+  {galleryImages2.map((img, index) => (
+    <img
+      key={index}
+      src={img}
+      alt={`Gallery image ${index + 1}`}
+      style={{
+        height: "400px",
+        minWidth: "300px",
+        objectFit: "cover",
+        borderRadius: "8px",
+        cursor: "pointer",
+        transition: "transform 0.3s ease"
+      }}
+      onMouseEnter={(e) => e.target.style.transform = "scale(1.05)"}
+      onMouseLeave={(e) => e.target.style.transform = "scale(1)"}
+      onClick={() => setLightboxImage(img)}
+    />
+  ))}
+</div>
+
         <div style={{textAlign: 'center',marginBottom: 16}}>
           <br />
           <br />
@@ -103,6 +151,39 @@ function HomePage() {
           </p>
         </div>
       </div>
+      
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'rgba(0, 0, 0, 0.9)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000,
+            cursor: 'pointer'
+          }}
+          onClick={() => setLightboxImage(null)}
+        >
+          <img
+            src={lightboxImage}
+            alt="Full size"
+            style={{
+              maxWidth: '95vw',
+              maxHeight: '95vh',
+              objectFit: 'contain',
+              borderRadius: '8px',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </>
   );
 }

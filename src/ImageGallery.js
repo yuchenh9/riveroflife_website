@@ -5,6 +5,8 @@ import "./ImageGallery.css";
 function ImageGallery({ images = [], width = "100%", height = "auto" }) {
   const [state, setState] = useState({ current: 0, prev: 0, direction: 1, transitioning: false });
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
   const timeoutRef = useRef(null);
   const transitionDuration = 600;
 
@@ -37,6 +39,38 @@ function ImageGallery({ images = [], width = "100%", height = "auto" }) {
     slideTo((state.current + 1) % images.length, 1);
   }
 
+  function openLightbox(index) {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+    clearTimeout(timeoutRef.current); // Pause slideshow when lightbox opens
+  }
+
+  function closeLightbox() {
+    setLightboxOpen(false);
+  }
+
+  function lightboxPrev() {
+    setLightboxIndex(lightboxIndex === 0 ? images.length - 1 : lightboxIndex - 1);
+  }
+
+  function lightboxNext() {
+    setLightboxIndex((lightboxIndex + 1) % images.length);
+  }
+
+  // Handle keyboard navigation in lightbox
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxPrev();
+      if (e.key === 'ArrowRight') lightboxNext();
+    }
+    
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxOpen, lightboxIndex, images.length]);
+
   if (images.length === 0) return null;
 
   return (
@@ -59,6 +93,8 @@ function ImageGallery({ images = [], width = "100%", height = "auto" }) {
                 className={className}
                 draggable={false}
                 onLoad={() => setImageLoaded(true)}
+                onClick={() => openLightbox(idx)}
+                style={{ cursor: 'pointer' }}
               />
             );
           })}
@@ -76,6 +112,31 @@ function ImageGallery({ images = [], width = "100%", height = "auto" }) {
           />
         ))}
       </div>
+      
+      {/* Lightbox Modal */}
+      {lightboxOpen && (
+        <div className="lightbox-overlay" onClick={closeLightbox}>
+          <div className="lightbox-container" onClick={(e) => e.stopPropagation()}>
+            <button className="lightbox-close" onClick={closeLightbox}>
+              &times;
+            </button>
+            <button className="lightbox-nav lightbox-prev" onClick={lightboxPrev}>
+              &#8249;
+            </button>
+            <img
+              src={images[lightboxIndex]}
+              alt={`Full size ${lightboxIndex + 1}`}
+              className="lightbox-image"
+            />
+            <button className="lightbox-nav lightbox-next" onClick={lightboxNext}>
+              &#8250;
+            </button>
+            <div className="lightbox-counter">
+              {lightboxIndex + 1} / {images.length}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
