@@ -5,8 +5,7 @@ const https = require('https');
 const helmet = require('helmet');
 
 // Configuration
-const HTTP_PORT = 80;
-const HTTPS_PORT = 443;
+const HTTPS_PORT = 9000;
 const DEV_PORT = 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const isInternetMode = process.argv.includes('--internet');
@@ -118,24 +117,18 @@ app.use((err, req, res, next) => {
 if (isInternetMode) {
   // HTTPS setup
   const sslOptions = {
-    key: fs.readFileSync('/etc/letsencrypt/live/yuchenh9.dev/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/yuchenh9.dev/fullchain.pem')
+    key: fs.readFileSync('/etc/letsencrypt/live/riveroflifecu.org/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/riveroflifecu.org/fullchain.pem')
   };
 
   const httpsServer = https.createServer(sslOptions, app);
 
-  // Redirect HTTP to HTTPS
-  express()
-    .use((req, res) => res.redirect(`https://${req.headers.host}${req.url}`))
-    .listen(HTTP_PORT, '0.0.0.0');
-
   httpsServer.listen(HTTPS_PORT, '0.0.0.0', () => {
-    console.log(`\n\x1b[1mSERVER RUNNING IN INTERNET MODE\x1b[0m`);
-    console.log(`HTTP -> HTTPS redirect active on port 80`);
-    console.log(`Secure server running on port 443`);
+    console.log(`\n\x1b[1mSERVER RUNNING IN INTERNET MODE (HTTPS ONLY)\x1b[0m`);
+    console.log(`Secure server running on port ${HTTPS_PORT}`);
     console.log(`\nConfigured domains:`);
     console.log(`River of Life Church: ${RIVER_OF_LIFE_DOMAINS.join(', ')}`);
-    console.log(`Access your site at:\n\x1b[36mhttps://yuchenh9.dev\x1b[0m\n`);
+    console.log(`Access your site at:\n\x1b[36mhttps://riveroflifecu.org:${HTTPS_PORT}\x1b[0m\n`);
   });
 } else {
   // Development mode
