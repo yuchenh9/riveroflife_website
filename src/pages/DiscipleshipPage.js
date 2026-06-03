@@ -1,8 +1,9 @@
 import React from "react";
+import useFolderImages from "../hooks/useFolderImages";
 
 function DiscipleshipPage() {
-  // Use a placeholder image if the original is not available
-  const imageUrl = process.env.PUBLIC_URL + "/discipleship_images/20190329-195715.jpg";
+  const { urls, loading } = useFolderImages("discipleship_images");
+  const imageUrl = urls[0];
   return (
     <div className="main-content" style={{ maxWidth: 1000, margin: "0 auto", padding: 24 }}>
       <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>门徒建造/小组团契</p>
@@ -37,8 +38,9 @@ function DiscipleshipPage() {
           </div>
         </div>
         <div style={{ flex: 1, minWidth: 240, textAlign: "center" }}>
-          {/* Use placeholder image if original is missing */}
-          <img src={imageUrl} alt="团契聚会" style={{ maxWidth: "100%", borderRadius: 12, boxShadow: "0 2px 12px #0001" }} />
+          {!loading && imageUrl && (
+            <img src={imageUrl} alt="团契聚会" style={{ maxWidth: "100%", borderRadius: 12, boxShadow: "0 2px 12px #0001" }} />
+          )}
         </div>
       </div>
       <div className="full-width-line" />

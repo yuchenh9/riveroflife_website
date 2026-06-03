@@ -1,6 +1,9 @@
 import React from "react";
+import useFolderImages from "../hooks/useFolderImages";
 
 function JoinPage() {
+  const { urls, loading } = useFolderImages("join_images");
+
   return (
     <div className="main-content" style={{ maxWidth: 900, margin: "0 auto", padding: 24 }}>
       <p style={{fontSize: "30px",textAlign: 'left',marginTop: "40px",marginLeft: "80px", color: '#000000'}}>加入</p>
@@ -17,22 +20,26 @@ function JoinPage() {
             </ol>
           </div>
           <div style={{ flex: 1, minWidth: 280, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <img
-              src={process.env.PUBLIC_URL + "/join_images/wechat-image-201904131249353_2.jpg"}
-              alt="教会活动"
-              style={{ maxWidth: "100%", borderRadius: 8 }}
-            />
+            {!loading && urls[0] && (
+              <img
+                src={urls[0]}
+                alt="教会活动"
+                style={{ maxWidth: "100%", borderRadius: 8 }}
+              />
+            )}
           </div>
         </div>
       </section>
       <section style={{ background: "#eaf6fb", borderRadius: 8, padding: 24, margin: "32px 0" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 32 }}>
           <div style={{ flex: 1, minWidth: 280, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <img
-              src={process.env.PUBLIC_URL + "/join_images/20190420-151430.jpg"}
-              alt="团契活动"
-              style={{ maxWidth: "100%", borderRadius: 8 }}
-            />
+            {!loading && urls[1] && (
+              <img
+                src={urls[1]}
+                alt="团契活动"
+                style={{ maxWidth: "100%", borderRadius: 8 }}
+              />
+            )}
           </div>
           <div style={{ flex: 1, minWidth: 280 }}>
             <h2 style={{ color: "#0693e3" }}>小组团契</h2>
@@ -57,11 +64,13 @@ function JoinPage() {
       <section style={{ margin: "32px 0" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 32 }}>
           <div style={{ flex: 1, minWidth: 280, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <img
-              src={process.env.PUBLIC_URL + "/join_images/wechat-image-2019041312393416.jpg"}
-              alt="大组团契"
-              style={{ maxWidth: "100%", borderRadius: 8 }}
-            />
+            {!loading && urls[2] && (
+              <img
+                src={urls[2]}
+                alt="大组团契"
+                style={{ maxWidth: "100%", borderRadius: 8 }}
+              />
+            )}
           </div>
           <div style={{ flex: 1, minWidth: 280 }}>
             <h2>大组团契</h2>

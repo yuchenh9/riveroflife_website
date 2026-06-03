@@ -1,3 +1,26 @@
+.gallery-strip {
+  margin-top: 20px;
+  display: flex;
+  overflow-x: auto;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px 20px;
+  scrollbar-width: thin;
+}
+
+.gallery-strip-thumb {
+  height: 400px;
+  min-width: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-strip-thumb:hover {
+  transform: scale(1.05);
+}
+
 .gallery-container {
   width: 100%;
   max-width: 100%;
